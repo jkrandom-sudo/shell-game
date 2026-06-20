@@ -29,6 +29,7 @@ STRINGS = {
         "cups": "Cups: {cups}",
         "guess_prompt": "Pick a cup (q): ",
         "invalid": "Invalid cup.",
+        "invalid_with_range": "Invalid cup. Choose 1-{max}.",
         "correct": "Correct! +{points}",
         "wrong": "Wrong. Ball was under cup {cup}.",
         "finished": "Finished {correct}/{total}. Rating: {rating}. Score {score}",
@@ -36,6 +37,8 @@ STRINGS = {
         "sharp": "sharp",
         "lucky": "lucky",
         "lost": "lost",
+        "cup_brackets": "[{num}]",
+        "swap_symbol": "<->",
     },
     "zh": {
         "title": "猜杯子",
@@ -65,6 +68,7 @@ STRINGS = {
         "cups": "杯子：{cups}",
         "guess_prompt": "选择杯子（q）：",
         "invalid": "无效杯子。",
+        "invalid_with_range": "无效杯子。请选择 1-{max}。",
         "correct": "正确！+{points}",
         "wrong": "错误。小球在第 {cup} 个杯子下。",
         "finished": "完成 {correct}/{total}。评级：{rating}。分数 {score}",
@@ -72,6 +76,8 @@ STRINGS = {
         "sharp": "敏锐",
         "lucky": "幸运",
         "lost": "迷路",
+        "cup_brackets": "[{num}]",
+        "swap_symbol": "<->",
     },
 }
 

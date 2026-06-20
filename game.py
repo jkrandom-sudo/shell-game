@@ -71,21 +71,24 @@ def play_round(settings):
     correct_count = 0
     streak = 0
 
+    bracket_fmt = t(lang, "cup_brackets")
+    swap_sym = t(lang, "swap_symbol")
+
     show_header(settings)
     for round_index in range(1, cfg["rounds"] + 1):
         start = core.new_round(difficulty)
         swaps = core.make_swaps(difficulty)
         end = core.apply_swaps(start, swaps)
         _print(t(lang, "round", round=round_index, total=cfg["rounds"]))
-        _print(t(lang, "cups", cups=core.cups_text(cfg["cups"], start)))
+        _print(t(lang, "cups", cups=core.cups_text(cfg["cups"], start, bracket_fmt)))
         _print(t(lang, "start", cup=start + 1))
-        _print(t(lang, "swaps", swaps=core.swaps_text(swaps)))
+        _print(t(lang, "swaps", swaps=core.swaps_text(swaps, swap_sym)))
         guess_text = input(t(lang, "guess_prompt")).strip().lower()
         if guess_text == "q":
             raise QuitGame()
         guess = core.parse_guess(guess_text, cfg["cups"])
         if guess is None:
-            _print(t(lang, "invalid"))
+            _print(t(lang, "invalid_with_range", max=cfg["cups"]))
             streak = 0
             snd.incorrect()
             continue

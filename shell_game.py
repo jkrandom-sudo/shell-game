@@ -50,18 +50,18 @@ def parse_guess(text, cups):
     return None
 
 
-def cups_text(cups, reveal=None):
+def cups_text(cups, reveal=None, bracket_fmt="[{num}]"):
     parts = []
     for idx in range(cups):
         label = str(idx + 1)
         if reveal == idx:
             label += "*"
-        parts.append(f"[{label}]")
+        parts.append(bracket_fmt.format(num=label))
     return " ".join(parts)
 
 
-def swaps_text(swaps):
-    return " ".join(f"{a + 1}<->{b + 1}" for a, b in swaps)
+def swaps_text(swaps, swap_symbol="<->"):
+    return " ".join(f"{a + 1}{swap_symbol}{b + 1}" for a, b in swaps)
 
 
 def score_for(difficulty, streak, correct=True):
